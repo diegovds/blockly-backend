@@ -11,6 +11,9 @@ export default class Maze extends BaseModel {
   @column()
   public image: string
 
+  @column()
+  public levels: JSON
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
