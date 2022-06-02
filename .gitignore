@@ -4,5 +4,3 @@ coverage
 .vscode
 .DS_STORE
 .env
-tmp/uploads/*
-!tmp/uploads/.gitkeep
