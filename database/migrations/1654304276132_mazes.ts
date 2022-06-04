@@ -8,6 +8,9 @@ export default class Mazes extends BaseSchema {
       table.increments('id')
       table.string('name').notNullable()
       table.string('image').notNullable()
+      table.json('levels').notNullable()
+
+      table.integer("user_id").references("users.id").onDelete("CASCADE")
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

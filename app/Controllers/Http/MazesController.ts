@@ -3,6 +3,7 @@ import {v4 as uuidv4} from 'uuid'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Maze from 'App/Models/Maze'
+import User from 'App/Models/User'
 
 import Application from "@ioc:Adonis/Core/Application"
 
@@ -12,9 +13,14 @@ export default class MazesController {
     size: '2mb',
   }
 
-  public async store({request, response}: HttpContextContract) {
+  public async store({request, response, params}: HttpContextContract) {
 
     const body = request.body()
+    const userId = params.userId
+
+    await User.findOrFail(userId)
+
+    body.user_id = userId
 
     const image = request.file('image', this.validationOptions)
 

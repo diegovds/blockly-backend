@@ -1,21 +1,19 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Maze from './Maze'
 
-export default class Maze extends BaseModel {
+export default class User extends BaseModel {
+  @hasMany(() => Maze)
+  public mazes: HasMany<typeof Maze>
+
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public name: string
+  public username: string
 
   @column()
-  public image: string
-
-  @column()
-  public levels: JSON
-
-  @column()
-  public userId: number
+  public uid: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

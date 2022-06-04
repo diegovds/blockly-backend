@@ -25,5 +25,10 @@ Route.group(() => {
     return { hello: 'world' }
   })
 
-  Route.resource('/mazes', 'MazesController').apiOnly()
+  Route.resource('/users', 'UsersController').apiOnly()
+  //Route.resource('/mazes', 'MazesController').apiOnly()
+  Route.post('/users/:userId/mazes', 'MazesController.store')
+  Route.get('/mazes/:id', 'MazesController.show')
+  Route.get('/mazes', 'MazesController.index')
+  Route.delete('/mazes/:id', 'MazesController.destroy')
 }).prefix('/api')
