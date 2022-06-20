@@ -82,6 +82,7 @@ export default class MazesController {
 
     maze.name = body.name
     maze.levels = body.levels
+    maze.createdAt = body.createdAt
 
     if(maze.image != body.image || !maze.image){
       const image = request.file('image', this.validationOptions)
