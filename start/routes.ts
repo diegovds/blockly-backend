@@ -30,6 +30,6 @@ Route.group(() => {
   Route.post('/users/:userId/mazes', 'MazesController.store')
   Route.get('/mazes/:id', 'MazesController.show')
   Route.get('/mazes', 'MazesController.index')
-  Route.patch('/mazes/:id', 'MazesController.update')
+  Route.put('/mazes/:id', 'MazesController.update')
   Route.delete('/mazes/:id', 'MazesController.destroy')
 }).prefix('/api')

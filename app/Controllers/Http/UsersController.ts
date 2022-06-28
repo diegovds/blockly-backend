@@ -53,7 +53,7 @@ export default class UsersController {
 
     const user = await User.findOrFail(params.id)
 
-    user.username = body.name
+    user.username = body.username
     user.uid = body.uid
 
     await user.save()

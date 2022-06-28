@@ -17,6 +17,9 @@ export default class Maze extends BaseModel {
   @column()
   public userId: number
 
+  @column()
+  public executions: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
