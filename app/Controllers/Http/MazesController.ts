@@ -22,6 +22,7 @@ export default class MazesController {
 
     body.user_id = userId
     body.executions = 0
+    body.conclusions = 0
 
     const image = request.file('image', this.validationOptions)
 
@@ -85,6 +86,7 @@ export default class MazesController {
     maze.levels = body.levels
     maze.createdAt = body.createdAt
     maze.executions = body.executions
+    maze.conclusions = body.conclusions
 
     if(maze.image != body.image || !maze.image){
       const image = request.file('image', this.validationOptions)
