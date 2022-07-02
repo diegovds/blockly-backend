@@ -1,6 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
 
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Drive from '@ioc:Adonis/Core/Drive'
 
 import Maze from 'App/Models/Maze'
 import User from 'App/Models/User'
@@ -29,9 +30,17 @@ export default class MazesController {
     if(image){
       const imageName = `${uuidv4()}.${image.extname}`
 
+      /*
       await image.move(Application.tmpPath('uploads'), {
         name: imageName
       })
+      */
+     try {
+      const upImg =  await image.moveToDisk('./', {name: imageName}, 's3')
+      console.log(upImg)
+     } catch (error) {
+      console.log(error)
+     }
 
       body.image = imageName
     }
@@ -68,6 +77,7 @@ export default class MazesController {
   public async destroy({ params }: HttpContextContract) {
     const maze = await Maze.findOrFail(params.id)
 
+    await Drive.delete(maze.image)
     await maze.delete()
     
     return {

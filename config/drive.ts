@@ -28,7 +28,7 @@ const driveConfig: DriveConfig = {
   | the `DRIVE_DISK` environment variable.
   |
   */
-  disk: Env.get('DRIVE_DISK'),
+  disk: 's3',
 
   disks: {
     /*
@@ -93,18 +93,15 @@ const driveConfig: DriveConfig = {
     |**************************************************************************
     |
     */
-    // s3: {
-    //   driver: 's3',
-    //   visibility: 'public',
-    //   key: Env.get('S3_KEY'),
-    //   secret: Env.get('S3_SECRET'),
-    //   region: Env.get('S3_REGION'),
-    //   bucket: Env.get('S3_BUCKET'),
-    //   endpoint: Env.get('S3_ENDPOINT'),
-    //
-    //  // For minio to work
-    //  // forcePathStyle: true,
-    // },
+     s3: {
+       driver: 's3',
+       visibility: 'public',
+       key: Env.get('S3_KEY'),
+       secret: Env.get('S3_SECRET'),
+       region: Env.get('S3_REGION'),
+       bucket: Env.get('S3_BUCKET'),
+       endpoint: Env.get('S3_ENDPOINT'),
+     },
 
     /*
     |--------------------------------------------------------------------------
