@@ -12,6 +12,9 @@ export default class Maze extends BaseModel {
   public image: string
 
   @column()
+  public url_image: string
+
+  @column()
   public levels: JSON
 
   @column()

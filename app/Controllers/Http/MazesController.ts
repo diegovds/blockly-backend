@@ -38,7 +38,9 @@ export default class MazesController {
      try {
       await image.moveToDisk('./', {name: imageName})
       const urlImage = await Drive.getUrl(imageName)
-      console.log(urlImage)
+
+      body.url_image = urlImage
+
      } catch (error) {
       console.log(error)
      }
