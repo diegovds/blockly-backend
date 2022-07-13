@@ -1,7 +1,6 @@
 import {v4 as uuidv4} from 'uuid'
 
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Database from '@ioc:Adonis/Lucid/Database'
 import Drive from '@ioc:Adonis/Core/Drive'
 
 import Maze from 'App/Models/Maze'
