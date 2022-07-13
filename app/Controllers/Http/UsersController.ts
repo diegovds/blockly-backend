@@ -19,7 +19,9 @@ export default class UsersController {
   }
 
   public async index(){
-    const users = await User.query().preload('mazes')
+    const users = await User.query().preload('mazes', (mazesQuery => {
+      mazesQuery.orderBy('created_at', 'desc')
+    }))
 
     return {
       data: users,
@@ -29,7 +31,9 @@ export default class UsersController {
   public async show({ params }: HttpContextContract){
     const user = await User.findOrFail(params.id)
 
-    await user.load('mazes')
+    await user.load('mazes', (mazesQuery => {
+      mazesQuery.orderBy('created_at', 'desc')
+    }))
 
     return {
       data: user,
