@@ -9,6 +9,9 @@ export default class Maze extends BaseModel {
   public name: string
 
   @column()
+  public username: string
+
+  @column()
   public image: string
 
   @column()

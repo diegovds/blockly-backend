@@ -19,8 +19,9 @@ export default class MazesController {
     const body = request.body()
     const userId = params.userId
 
-    await User.findOrFail(userId)
+    const user = await User.findOrFail(userId)
 
+    body.username = user.username
     body.user_id = userId
     body.executions = 0
     body.conclusions = 0
@@ -95,6 +96,7 @@ export default class MazesController {
 
     const maze = await Maze.findOrFail(params.id)
 
+    maze.username = body.username
     maze.name = body.name
     maze.levels = body.levels
     maze.createdAt = body.createdAt
