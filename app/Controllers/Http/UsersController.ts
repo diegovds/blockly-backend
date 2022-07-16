@@ -28,8 +28,20 @@ export default class UsersController {
     }
   }
 
-  public async show({ params }: HttpContextContract){
+  public async showById({ params }: HttpContextContract){
     const user = await User.findOrFail(params.id)
+
+    await user.load('mazes', (mazesQuery => {
+      mazesQuery.orderBy('created_at', 'desc')
+    }))
+
+    return {
+      data: user,
+    }
+  }
+
+  public async showByUid({ params }: HttpContextContract){
+    const user = await User.findByOrFail('uid', params.uid)
 
     await user.load('mazes', (mazesQuery => {
       mazesQuery.orderBy('created_at', 'desc')

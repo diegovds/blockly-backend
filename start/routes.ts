@@ -22,10 +22,17 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
   Route.get('/', async () => {
-    return { hello: 'world' }
+    return { API: 'My Blockly Maze' }
   })
 
-  Route.resource('/users', 'UsersController').apiOnly()
+  Route.post('/users', 'UsersController.store')
+  Route.get('/users/:id', 'UsersController.showById')
+  Route.get('/users/:id/:uid', 'UsersController.showByUid')
+  Route.get('/users', 'UsersController.index')
+  Route.put('/users/:id', 'UsersController.update')
+  Route.delete('/users/:id', 'UsersController.destroy')
+  //Route.resource('/users', 'UsersController').apiOnly()
+
   //Route.resource('/mazes', 'MazesController').apiOnly()
   Route.post('/users/:userId/mazes', 'MazesController.store')
   Route.get('/mazes/:id', 'MazesController.show')
