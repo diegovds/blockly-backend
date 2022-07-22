@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import Maze from 'App/Models/Maze'
 
 export default class UsersController {
 
@@ -71,6 +72,8 @@ export default class UsersController {
 
     user.username = body.username
     user.uid = body.uid
+
+    await Maze.query().where('user_id', params.id).update({ username:  body.username})
 
     await user.save()
 
