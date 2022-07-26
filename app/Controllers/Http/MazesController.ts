@@ -6,7 +6,7 @@ import Drive from '@ioc:Adonis/Core/Drive'
 import Maze from 'App/Models/Maze'
 import User from 'App/Models/User'
 
-import Application from "@ioc:Adonis/Core/Application"
+//import Application from "@ioc:Adonis/Core/Application"
 
 export default class MazesController {
   private validationOptions = {
