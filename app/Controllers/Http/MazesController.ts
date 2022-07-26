@@ -109,11 +109,23 @@ export default class MazesController {
       if(image){
         const imageName = `${uuidv4()}.${image.extname}`
 
-        await image.move(Application.tmpPath('uploads'), {
+        /*await image.move(Application.tmpPath('uploads'), {
         name: imageName
-      })
+      })*/
+        
+        await Drive.delete(maze.image)
 
-      maze.image = imageName
+        try {
+          await image.moveToDisk('./', {name: imageName})
+          const urlImage = await Drive.getUrl(imageName)
+    
+          maze.url_image = urlImage
+    
+        } catch (error) {
+          console.log(error)
+        }
+
+        maze.image = imageName
       }
     }
 
