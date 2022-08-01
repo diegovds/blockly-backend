@@ -1,4 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
+const Generator = require("license-key-generator");
 
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Drive from '@ioc:Adonis/Core/Drive'
@@ -25,6 +26,20 @@ export default class MazesController {
     body.user_id = userId
     body.executions = 0
     body.conclusions = 0
+
+    const options = {
+      type: "random", // default "random"
+      length: 6, // default 16
+      group: 1, // default 4
+      split: "-", // default "-"
+      splitStatus: false // default true
+    }
+    const code = new Generator(options);
+    code.get((error: any,code: any)=>{
+        if(error) return console.error(error)
+        //console.log("code=",code);
+        body.code = code
+    })
 
     const image = request.file('image', this.validationOptions)
 
@@ -102,6 +117,22 @@ export default class MazesController {
     maze.createdAt = body.createdAt
     maze.executions = body.executions
     maze.conclusions = body.conclusions
+
+    if(maze.code == null){
+      const options = {
+        type: "random", // default "random"
+        length: 6, // default 16
+        group: 1, // default 4
+        split: "-", // default "-"
+        splitStatus: false // default true
+      }
+      const code = new Generator(options);
+      code.get((error: any,code: any)=>{
+          if(error) return console.error(error)
+          //console.log("code=",code);
+          maze.code = code
+      }) 
+    }
 
     if(maze.image != body.image || !maze.image){
       const image = request.file('image', this.validationOptions)
