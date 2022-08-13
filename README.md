@@ -1,7 +1,7 @@
 ## Back-end da plataforma My Blockly Maze
 
 ## Sobre o projeto
-Este projeto foi implementado durante o meu trabalho de conclusão de curso. Nele foi desenvolvida API da plataforma My Blockly Maze utilizando o framework AdonisJS com TypeScript. Também utilizou-se PostgreSQL para o banco de dados e um bucket no Amazon S3 para armazenar as imagens.
+Este projeto foi implementado durante o meu trabalho de conclusão de curso. Nele foi desenvolvida a API da plataforma My Blockly Maze utilizando o framework AdonisJS com TypeScript. Também utilizou-se PostgreSQL para o banco de dados e um bucket no Amazon S3 para armazenar as imagens.
 
 ...
 ## Linguagens, dependências e bibliotecas usadas 📚
