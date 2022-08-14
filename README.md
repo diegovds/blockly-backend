@@ -8,6 +8,11 @@ Este projeto foi implementado durante o meu trabalho de conclusão de curso. Nel
 
 * [TypeScript](https://www.typescriptlang.org/pt/)
 * [AdonisJS](https://adonisjs.com/)
+* [Drive S3](https://docs.adonisjs.com/guides/drive#s3-driver)
+* [Lucid](https://docs.adonisjs.com/guides/database/introduction)
+* [PG](https://docs.adonisjs.com/guides/database/introduction#drivers-config)
+* [license-key-generator](https://www.npmjs.com/package/license-key-generator)
+* [uuid](https://www.npmjs.com/package/uuid)
 
 ...
 ## Iniciando ▶️
