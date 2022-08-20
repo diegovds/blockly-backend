@@ -28,7 +28,7 @@ npm install
 ```
 - Em seguida, inicie o projeto usando:
 ```
-node ace serve
+node ace serve --watch
 ```
 - Após a compilação, o servidor será iniciado no endereço localhost:3333/api
 
