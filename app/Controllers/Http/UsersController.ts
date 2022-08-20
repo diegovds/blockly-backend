@@ -73,7 +73,9 @@ export default class UsersController {
     user.username = body.username
     user.uid = body.uid
 
-    await Maze.query().where('user_id', params.id).update({ username:  body.username})
+    if(body.username){
+      await Maze.query().where('user_id', params.id).update({ username:  body.username})
+    }
 
     await user.save()
 
